@@ -1,12 +1,14 @@
-# Создайте программу для прогноза погоды
-
 #!/usr/bin/python
  # -*- coding: utf-8 -*-
 
-appid = "0b9aa1f75793b14284f41bf28a680b3c"# полученный при регистрации на OpenWeatherMap.org. Что-то вроде такого набора букв и цифр: "6d8e495ca73d5bbc1d6bf8ebd52c4123"
+# Создайте программу для прогноза погоды
+
+# мой токен к OpenWeatherMap.org - 0b9aa1f75793b14284f41bf28a680b3c
+appid = "0b9aa1f75793b14284f41bf28a680b3c"  # токен полученный при регистрации на OpenWeatherMap.org.
 
 import requests
 
+# Получаем направление ветра
 def get_wind_direction(deg):
     l = ['С ','СВ',' В','ЮВ','Ю ','ЮЗ',' З','СЗ']
     for i in range(0,8):
@@ -75,6 +77,7 @@ def request_forecast(city_id):
 city_id = 1496747
 
 import sys
+# возможность для ввода названия города в качесве аргумента к запуску файла
 if len(sys.argv) == 2:
     s_city_name = sys.argv[1]
     print("city:", s_city_name)
