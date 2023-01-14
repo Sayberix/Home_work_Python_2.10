@@ -1,3 +1,8 @@
+# 3. Создайте программу для прогноза погоды
+
+#!/usr/bin/python
+ # -*- coding: utf-8 -*-
+
 appid = "0b9aa1f75793b14284f41bf28a680b3c"# полученный при регистрации на OpenWeatherMap.org. Что-то вроде такого набора букв и цифр: "6d8e495ca73d5bbc1d6bf8ebd52c4123"
 
 import requests
@@ -66,6 +71,7 @@ def request_forecast(city_id):
 #city_id for SPb
 #city_id = 519690
 
+#city_id for Nsk
 city_id = 1496747
 
 import sys
@@ -74,7 +80,7 @@ if len(sys.argv) == 2:
     print("city:", s_city_name)
     city_id = get_city_id(s_city_name)
 elif len(sys.argv) > 2:
-    print('Enter name of city as one argument. For example: Petersburg,RU')
+    print('Enter name of city as one argument. For example: Nsk,RU')
     sys.exit()
 
 request_forecast(city_id)
