@@ -5,6 +5,7 @@
 
 import copy
 from random import choice
+from progress.bar import Bar
 
 # вывод массива
 def print_box(func_box: list) -> str:
@@ -17,7 +18,6 @@ def init_box(func_box: list) -> list:
     for i in range(len(func_box)):
         for j in range(len(func_box[i])): 
             func_box[i][j] = '.'
-            ...
     return func_box
 
 def dict_elements(func_box: list, number: int, symbol: str) -> list:
@@ -52,10 +52,16 @@ def fill_elements(func_box: list, i_parametr: int, j_parametr: int, symbol: str)
                 if func_box[i][j] == ".":
                     func_box[i][j] = symbol
                     turn_counter += 1
+                    progress_bar(turn_counter)
                 else:
                     n = int(input('Эта ячейка уже занята! Повторите ввод!: '))
                     dict_elements(func_box, n, symbol)
     return func_box
+
+def progress_bar (count: int):
+    with Bar('Количество ходов от максимально возможных:', max=9) as bar:
+        bar.next()
+        ...
 
 def check_fill_for_endgame(func_box: list, symbol: str) -> bool:
     global turn_counter
@@ -129,8 +135,10 @@ while check_end_game(mas_work):
         game_move = int(input(f'Ходит игрок {player_1}. Введите номер ячейки (от 1 до 9): '))
         dict_elements(mas_work, game_move, 'X')
         flag = False
+        progress_bar(turn_counter)
     else:
         matrix_for_enter(mas)
         game_move = int(input(f'Ходит игрок {player_2}. Введите номер ячейки (от 1 до 9): '))
         dict_elements(mas_work, game_move, 'O')
         flag = True
+        progress_bar(turn_counter)
