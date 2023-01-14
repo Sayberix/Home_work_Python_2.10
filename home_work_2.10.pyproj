@@ -4,14 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>69149a25-5f86-4311-8119-e55608fbb2ff</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>home_work_2.10.py</StartupFile>
+    <StartupFile>owm-request.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>home_work_2.10</Name>
     <RootNamespace>home_work_2.10</RootNamespace>
-    <InterpreterId>MSBuild|.venv|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|.venv2|$(MSBuildProjectFullPath)</InterpreterId>
     <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -24,8 +24,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="home_work_2.10.py" />
+    <Compile Include="owm-request.py" />
   </ItemGroup>
   <ItemGroup>
+    <Interpreter Include=".venv2\">
+      <Id>.venv2</Id>
+      <Version>3.11</Version>
+      <Description>.venv2 (Python 3.11 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
     <Interpreter Include=".venv\">
       <Id>.venv</Id>
       <Version>3.11</Version>
@@ -35,6 +45,9 @@
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
       <Architecture>X64</Architecture>
     </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="requirements.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
