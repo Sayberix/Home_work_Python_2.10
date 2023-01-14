@@ -60,7 +60,7 @@ def fill_elements(func_box: list, i_parametr: int, j_parametr: int, symbol: str)
 
 def progress_bar (count: int):
     with Bar('Количество ходов от максимально возможных:', max=9) as bar:
-        bar.next()
+        bar.next(count)
         ...
 
 def check_fill_for_endgame(func_box: list, symbol: str) -> bool:
